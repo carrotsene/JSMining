@@ -1,0 +1,237 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #555;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: -1;
+}
+
+button {
+  background-color: #444;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 0 10px #0ff;
+}
+
+button:hover {
+  background-color: #555;
+  transform: scale(1.05);
+  transition: all 0.2s;
+}
+
+.clicked {
+  transform: scale(0.95);
+  box-shadow: 0 0 5px #0ff inset;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+.game {
+  max-width: 400px;
+  margin: auto;
+  background: #333;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+#inventoryContainer {
+  position: fixed;
+  top: 2vh;
+  left: 2vw;
+  width: 25vw; /* responsive width */
+  max-width: 300px;
+  height: auto;
+  max-height: 90vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 1em;
+  border-radius: 10px;
+  color: white;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  z-index: 1000;
+  text-align: left;
+  overflow-y: auto;
+}
+
+#inventory {
+  max-height: none; /*remove the height limitation */
+  overflow-y: auto; /*allows for vertical scrolling only if needed*/
+  padding: 0;
+}
+
+#itemsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#itemsList li {
+  display: flex;
+  align-items: center;
+  margin: 8px 0;
+  padding: 5px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#itemsList li:last-child {
+  border-bottom: none;
+}
+
+#tntPowerup {
+  position: absolute;
+  cursor: pointer;
+  width: 100px;  /*increases the size */
+  height: 100px; /*increases the size */
+  background-image: url('path_to_tnt_image.png'); /*ensure you set the background image if necessary */
+  background-size: contain; /*TNT image is resized correctly */
+  background-repeat: no-repeat; /*prevent repeating the background */
+  z-index: 9999; /*ensure it's above other elements */
+}
+
+
+#upgradePickaxe {
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+#upgradePickaxe:hover {
+  background-color: #45a049;
+}
+
+#pickaxeMenuContainer {
+  position: fixed;
+  top: 2vh;
+  right: 2vw;
+  width: 25vw; /* responsive width */
+  max-width: 300px;
+  height: auto;
+  max-height: 90vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 1em;
+  border-radius: 10px;
+  color: white;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  z-index: 1000;
+  text-align: left;
+  overflow-y: auto;
+}
+
+
+#pickaxeMenu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#pickaxeMenu li.locked {
+  background-color: #222;
+  color: #888;
+  cursor: not-allowed;
+}
+
+#pickaxeMenu li.owned {
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+}
+
+#pickaxeMenu li.owned:hover {
+  background-color: #555;
+}
+
+#message {
+  min-height: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+#rarityText {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  color: gray;
+  margin: -17px;
+}
+
+
+#mineralDisplay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 15px 0;
+}
+
+#mineralImage {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 10px;
+  display: none;
+}
+
+#message {
+  min-height: 60px;
+  text-align: center;
+}
+
+/*if you hover over pickaxes this will show the border*/
+#pickaxePreview {
+  transition: opacity 0.2s;
+  border: 2px solid #0ff;
+  border-radius: 8px;
+  background-color: #111;
+  padding: 5px;
+}
+
+/*for small screens*/
+
+@media screen and (max-width: 768px) {
+  #inventoryContainer,
+  #pickaxeMenuContainer {
+    width: 40vw;
+    font-size: 0.9em;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #inventoryContainer,
+  #pickaxeMenuContainer {
+    width: 90vw;
+    left: 5vw;
+    right: 5vw;
+    top: 1vh;
+    font-size: 0.8em;
+  }
+}

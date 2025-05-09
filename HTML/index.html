@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../CSS/style.css">
+  <script src="../JS/pickaxe.js" defer></script>
+  <script src="../JS/pickaxeSystem.js" defer></script>
+  <script src="../JS/script.js" defer></script>
+  <title>JSMining</title>
+</head>
+<body>
+
+  <div id="inventoryContainer">
+    <div id="inventory">
+      <h2>Inventory</h2>
+      <ul id="itemsList"></ul>
+    </div>
+  </div>
+
+  <div class="game">
+    <h1>JSMining</h1>
+    <button id="mineButton">Mine!</button>
+
+    <div id="mineralDisplay">
+      <img id="mineralImage" class="mineral-image" style="display:none;" />
+      <p id="message">Click "Mine!" to find minerals.</p>
+    </div>
+
+    <p id="pickaxeStatus">Current Pickaxe: Wood</p>
+    <button id="upgradePickaxe">Upgrade Pickaxe</button>
+    <button id="autoMineButton">Unlock Auto-Mine (25 Iron, 10 Gold)</button>
+  </div>
+  
+  <div id="pickaxeStatus"></div>
+
+  <div id="pickaxeMenuContainer">
+    <h3>Select Pickaxe</h3>
+    <ul id="pickaxeMenu">
+      <li data-pickaxe="Wood">Wood Pickaxe</li>
+      <li data-pickaxe="Stone">Stone Pickaxe</li>
+      <li data-pickaxe="Iron">Iron Pickaxe</li>
+      <li data-pickaxe="Diamond">Diamond Pickaxe</li>
+      <li data-pickaxe="Viridian">Viridian Pickaxe</li>
+      <li data-pickaxe="FireIce">Fire Ice Pickaxe</li>
+      <li data-pickaxe="Draconic">Draconic Pickaxe</li>
+    </ul>
+    <p id="pickaxeMenuMessage"></p>
+  </div>
+
+  <img id="pickaxePreview" src="" alt="Pickaxe Preview" style="display:none; position:fixed; width:100px; height:auto; pointer-events:none; z-index:10000;">
+
+  <div id="luckDisplay">Luck Multiplier: 1.00x (Wooden Pickaxe)</div>
+
+  <p id="mineralsMinedCounter">Total Minerals Mined: 0</p>
+
+  <button id="oreIndexToggle" style="margin-top: 10px;">Show Ore Index</button>
+
+<div id="oreIndexMenu" style="display: none;">
+  <h3>Ore Index</h3>
+  <div id="oreList" class="ore-grid">
+    <!-- Ores will be inserted dynamically -->
+  </div>
+</div>
+
+<button id="settingsToggle" style="margin-top: 10px;">Settings</button>
+
+<div id="settingsMenu" style="display: none;">
+  <h3>Settings</h3>
+  <label for="volumeSlider">Volume: <span id="volumeValue">100%</span></label>
+  <input type="range" id="volumeSlider" min="0" max="100" value="100">
+</div>
+
+</body>
+</html>
